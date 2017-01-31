@@ -1,0 +1,42 @@
+This is a commandline tool for viewing all bytes of a file.
+I created it to be able to see the compressed output of my huffman code project.
+
+--BUILD
+
+run "cargo build --release" -> "target/release/byteread" is created
+
+--USAGE
+
+Since the resulting output can be very long I recommend piping the output into programs like
+less or saving it to a file.
+
+Basic usage is:
+
+>> byteread <File>
+
+This prints out all bytes in hex format, 8 bytes per row
+
+--SWITCHES AND OPTIONS
+
+-a or --ascii    -> prints a second table next to the byte table, displaying the bytes char value
+                    (if above 32 and under 127, else a space character is printed)
+-l or --lines    -> prints the index of the first byte of each row
+
+-f or --format <format>         -> sets the format the bytes will be displayed in.
+                                   available are: "hex", "bin" "u8" "i8"
+                                   default is: "hex"
+-i or --indent <number>         -> sets the number of space characters between two blocks of bytes
+                                   default is: 2
+-p or --pageformat <pageformat> -> pageformat has the format <blocks>:<cols>
+
+Example of pageformat (x's are bytes and spaces are indentations):
+"-p 1:8" would print like this:
+    x x x x x x x x
+"-p 2:6" would print like this:
+    xx xx xx
+"-p 3:7" would print like this:
+    xxx xxx x
+
+--DEPENDECIES
+
+-> uses clap 2.20.1
