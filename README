@@ -37,6 +37,6 @@ Example of pageformat (x's are bytes and spaces are indentations):
 "-p 3:7" would print like this:
     xxx xxx x
 
---DEPENDECIES
+--DEPENDENCIES
 
 -> uses clap 2.20.1

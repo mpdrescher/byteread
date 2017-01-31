@@ -110,7 +110,7 @@ fn print_ascii_buffer(buffer: &Data, args: &AppArgs)
 	{
 		for ch in buffer_chunk
 		{
-			if *ch > 32 //don't print whitespace and ctrl char
+			if *ch > 32 && *ch < 127 //don't print whitespace and ctrl char
 			{
 				print!("{}", *ch as char);
 			}
